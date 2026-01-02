@@ -11,88 +11,44 @@
       height: 100vh;
       font-family: Arial;
     }
+
     .calculator {
-      background: white;
+      background: #fff;
       padding: 20px;
       border-radius: 10px;
       width: 260px;
     }
+
     .display {
-  background-color: #fff3cd;
-  color: #000;
-}
-    input {
       width: 100%;
       height: 50px;
       font-size: 22px;
       margin-bottom: 10px;
       text-align: right;
+      background: #fff3cd;
+      border: 1px solid #ccc;
     }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
     button {
-      width: 60px;
       height: 50px;
       font-size: 18px;
-      margin: 2px;
       cursor: pointer;
     }
-    .buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 buttons in one row */
-  gap: 8px;
-}
 
-button {
-  height: 50px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.equal {
-  grid-column: span 2; /* = button wider */
-}
-
+    .equal {
+      grid-column: span 2;
+    }
   </style>
 </head>
 <body>
 
-<!-- <div class="calculator">
-  <input type="text" id="result" disabled class="display">
-
-  <div>
-    <button onclick="clearResult()">C</button>
-    <button onclick="del()">⌫</button>
-    <button onclick="append('%')">%</button>
-    <button onclick="append('/')">/</button>
-  </div>
-
-  <div>
-    <button onclick="append('7')">7</button>
-    <button onclick="append('8')">8</button>
-    <button onclick="append('9')">9</button>
-    <button onclick="append('*')">*</button>
-  </div>
-
-  <div>
-    <button onclick="append('4')">4</button>
-    <button onclick="append('5')">5</button>
-    <button onclick="append('6')">6</button>
-    <button onclick="append('-')">-</button>
-  </div>
-
-  <div>
-    <button onclick="append('1')">1</button>
-    <button onclick="append('2')">2</button>
-    <button onclick="append('3')">3</button>
-    <button onclick="append('+')">+</button>
-  </div>
-
-  <div>
-    <button onclick="append('0')">0</button>
-    <button onclick="append('.')">.</button>
-    <button onclick="calculate()" style="width:125px;">=</button>
-  </div>
-</div> -->
-  <div class="calculator">
+<div class="calculator">
   <input type="text" id="result" class="display" disabled>
 
   <div class="buttons">
@@ -122,12 +78,11 @@ button {
   </div>
 </div>
 
-
 <script>
-  let result = document.getElementById("result");
+  const result = document.getElementById("result");
 
-  function append(value) {
-    result.value += value;
+  function append(val) {
+    result.value += val;
   }
 
   function clearResult() {
